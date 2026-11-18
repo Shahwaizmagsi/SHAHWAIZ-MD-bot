@@ -1,0 +1,7 @@
+module.exports = {
+  botName: 'SHAHWAIZ MD BOT',
+  ownerName: 'Shahwaiz',
+  // Apna number country code ke sath, bina + ke (e.g. 923001234567)
+  ownerNumber: '923711951785',
+  prefix: '.',
+};
