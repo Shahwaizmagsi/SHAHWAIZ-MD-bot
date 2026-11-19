@@ -6,8 +6,8 @@ const {
   Browsers,
   jidNormalizedUser,
 } = require('@whiskeysockets/baileys');
-const { webcrypto } = require('node:crypto');
-globalThis.crypto = webcrypto;
+const crypto = require('crypto');
+global.crypto = crypto;
 const pino = require('pino');
 const readline = require('readline');
 const config = require('./config');
@@ -148,3 +148,21 @@ const number = "923711951785";
 }
 
 start();
+
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.post('/pair', async (req, res) => {
+  const { number } = req.body;
+  if (!number) return res.status(400).send({ error: "Number is required" });
+
+  try {
+    const code = await requestPairingCodeForUser(number);
+    res.send({ code });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
+app.listen(3000, () => console.log("API Server running on port 3000"));

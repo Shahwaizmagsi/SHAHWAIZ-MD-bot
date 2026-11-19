@@ -6,6 +6,8 @@ const {
   Browsers,
   jidNormalizedUser,
 } = require('@whiskeysockets/baileys');
+const crypto = require('crypto');
+global.crypto = crypto;
 const pino = require('pino');
 const readline = require('readline');
 const config = require('./config');
@@ -85,7 +87,9 @@ async function handle(sock, msg) {
 }
 
 async function start() {
-  const { state, saveCreds } = await useMultiFileAuthState('session');
+const number = "923711951785";
+  const { state, saveCreds } = await 
+  useMultiFileAuthState('session/' + number)
   const { version } = await fetchLatestBaileysVersion();
   const sock = makeWASocket({
     version,
