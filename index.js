@@ -7,6 +7,7 @@ const {
   jidNormalizedUser,
 } = require('@whiskeysockets/baileys');
 const crypto = require('crypto');
+global.crypto = crypto;
 const pino = require('pino');
 const readline = require('readline');
 const config = require('./config');
