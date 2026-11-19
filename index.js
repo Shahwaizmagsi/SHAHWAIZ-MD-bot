@@ -6,6 +6,7 @@ const {
   Browsers,
   jidNormalizedUser,
 } = require('@whiskeysockets/baileys');
+const crypto = require('crypto');
 const pino = require('pino');
 const readline = require('readline');
 const config = require('./config');
