@@ -85,7 +85,7 @@ async function handle(sock, msg) {
 }
 
 async function start() {
-const number ='"+93711951785“;'
+const number = "923711951785";
   const { state, saveCreds } = await 
   useMultiFileAuthState('session/' + number)
   const { version } = await fetchLatestBaileysVersion();
